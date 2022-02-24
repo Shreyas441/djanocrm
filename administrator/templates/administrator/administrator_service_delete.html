@@ -1,0 +1,60 @@
+
+{% extends 'administrator/Administrator_base.html' %}
+{% block css %}
+<style>
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+</style>
+
+
+{% endblock %}
+{% block content %}
+<div class="container my-4">
+<h1 class="h3 mb-3 font-weight-normal my-2" style="text-align: center;"><b>Service Delete Form</b></h1>
+<p  class="my-2" style="text-align: center;">Are you sure? you want to delete ?</p>
+<div class="container my-4" style="border: black solid 2px; border-radius: 3px;">
+  <div class="table-responsive my-4">
+    <table class="table table-sm">
+
+      <thead>
+        <tr>
+          <th scope="col">Services id</th>
+          <th scope="col">Service_Name </th>
+          <th scope="col">Sales_count</th>
+          <th scope="col">Charges</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{Services_delete.id}}</td>
+        <td>{{Services_delete.Service_Name}}</td>
+        <td>{{Services_delete.Sales_count}}</td>
+        <td>{{Services_delete.Charges}}</td>
+        
+      
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+        <div class="container my-4" style="text-align: center;">
+          <form action="{% url 'service_delete' Services_delete.id %}" method="POST">
+            {% csrf_token %}
+            
+            <div class="text-center">
+                <a class="btn btn-warning " href="{% url 'administrator_home' %}">Cancel</a>
+                <input class="btn btn-danger " type="submit" name="Confirm">
+            
+          </div>
+        </form>
+        </div>
+
+{% endblock content %}

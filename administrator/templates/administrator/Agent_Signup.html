@@ -1,0 +1,113 @@
+{% extends 'administrator/Administrator_base.html' %}
+{% load static %}
+
+{% block title %} <title>Agent SignUp</title> {% endblock %}
+{% block css %}
+<style>
+    .divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.text-small {
+  font-size: 0.9rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+footer {
+  background: #212529;
+}
+
+  body, html {
+    height: 100%;
+  }
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+</style>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+        
+<div class="container my-4">
+
+  <form class="form-signin" method="POST">
+    <h1 class="h3 mb-3 font-weight-normal" style="text-align: center;"><b>Agent sign up</b></h1>
+    {% csrf_token %}
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+     
+        <input type="text" class="form-control" placeholder="Username" id="userDOC" name="username1" required>
+        <span id="userValid"></span>
+    </div>
+    <div class="form-outline mb-4">
+      <div class="email elem">
+          <input type="email" class="form-control" placeholder="Email" name="Email" required>
+      </div>
+  </div>
+
+  <div class="form-outline mb-4">
+    <div class="first_name elem">
+        <input type="text" class="form-control" placeholder="First name" name="First_name" required>
+    </div>
+</div>
+<div class="form-outline mb-4">
+    <div class="last_name elem">
+        <input type="text" class="form-control" placeholder="Last name" name="Last_name" required>
+    </div>
+</div>
+<div class="form-outline mb-4">
+
+  <input type="Password" class="form-control" name="password" placeholder="password" required>
+</div>
+<div class="form-outline mb-4">
+  <div class="confirm_pswd elem">
+      <input type="Password" class="form-control" placeholder="Confirm Password" name="password2" required>
+  </div>
+</div>
+<div class="form-outline mb-4">
+    <div class="confirm_pswd elem">
+        <input type="Number" class="form-control"  placeholder="Add Phone Number" name="Mobile" id="mobile"
+            required>
+            <span id="msg"></span>
+    </div>
+  </div>
+
+
+<div class="d-flex justify-content-around align-items-center mb-4">
+<h2 class="mx-auto" style="color: red;">{{i}}</h2>
+</div>
+
+    <button id="but" class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+  </form>
+  
+
+
+
+
+</div>
+<script src="{% static 'js/Mobile.js' %}"></script>
+<script src="{% static 'js/Validate_user.js' %}"></script>
+
+    {% endblock content %}

@@ -1,0 +1,61 @@
+{% extends 'administrator/Administrator_base.html' %}
+
+
+{% block title %} <title> Agent Page</title>{% endblock %}
+{% block css %}
+<style>
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<h5 style="text-align: center;  font-weight: 700; ">Agent Performence</h5>
+    <div class="container my-2" style="border: black solid 2px; border-radius: 3px;">
+      <div class="table-responsive ">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Unique Id</th>
+              <th scope="col">Agent_user</th>
+              <th scope="col">mobile</th>
+              <th scope="col">Sales count</th>
+              <th scope="col">Total Client</th>
+              
+      
+            </tr>
+          </thead>
+          <tbody>
+              {% for j in Agents_b %}
+            <tr>
+              <th scope="row">{{j.id}}</th>
+              <td>{{j.Agent_user}}</td>
+              <td>{{j.mobile}}</td>
+              <td>{{j.Sales_count}}</td>
+              <td>{{j.Client_count}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div  style="text-align: center;">
+    
+      {% if Agents_b.has_previous %}
+        <a class="btn btn-outline-info" href="{% url 'Agent_report' %}?Agents_b={{Agents_b.previous_page_number}}">Previous</a>
+      {% endif %}
+      {% if Agents_b.has_next %}
+        <a  class="btn btn-outline-info" href="{% url 'Agent_report' %}?Agents_b={{Agents_b.next_page_number}}">Next</a>
+      {% endif %}
+    
+    
+    </div>
+    {% endblock content %}

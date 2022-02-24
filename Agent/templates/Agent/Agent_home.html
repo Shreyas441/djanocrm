@@ -1,0 +1,101 @@
+
+{% extends 'Agent/base.html' %}
+
+{% load static %}
+ 
+    {% block content %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{message}}</strong>
+    </div>
+    {% endfor %}
+
+  <div class="container my-2">
+  
+    <div class="row">
+      
+
+   
+      <div class="col-xl-4 col-md-6">
+        <div class="card bg-success text-white mb-3">
+          <div class="card-body"> Total service Saled </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <p class="small text-white stretched-link">{{Agents_a.Sales_count}}</p>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+      <div class="col-xl-4 col-md-6 ">
+        <div class="card bg-primary text-white mb-3">
+          <div class="card-body">Total client & lead</div>
+          <div class="card-footer d-flex align-items-center justify-content-between">
+              <p class="small text-white stretched-link">{{Agents_a.Client_count}}</p>
+              
+            </div>
+          </div>
+        
+    </div>
+    <div class="col-xl-4 col-md-6">
+      <div class="card bg-warning text-white mb-3">
+        <a href="{% url 'Agent_Lead'%}"><div class="card-body"> Total Lead Without Trial </div>
+      <div class="card-footer d-flex align-items-center justify-content-between">
+          <p class="small text-white stretched-link">{{Customer_a_b}}</p>
+          
+        </div>
+      </div>
+    </a>
+  </div>
+  </div>
+  </div>
+  <div class="container my-2">
+    
+    <div class="row">
+      
+      <div class="col-xl-4 col-md-6">
+          <div class="card bg-success text-white mb-3">
+            <a href="{% url 'Agent_trail'%}"><div class="card-body">Service Trial Report</div>
+          
+          </div>
+        </a>
+      </div>
+   
+      <div class="col-xl-4 col-md-6">
+        <div class="card bg-primary text-white mb-3">
+          <a href="{% url 'Agent_trail_request'%}"><div class="card-body"> Your service Requested</div>
+        
+        </div>
+      </a>
+    </div>
+    
+      <div class="col-xl-4 col-md-6 ">
+        <div class="card bg-warning text-white mb-3">
+          <a href="{% url 'Agent_Lead_trail'%}"><div class="card-body">Leads On Trial : {{Customer_a_c}}</div>
+         
+          </div>
+        </a>
+    </div>
+  </div>
+  </div>
+ 
+       
+        
+
+
+
+
+</div>
+</div>
+
+
+</body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock content %}

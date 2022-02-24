@@ -1,0 +1,63 @@
+{% extends 'Agent/base.html' %}
+{% load static %}
+
+{% block title %} <title>Add client</title> {% endblock %}
+{% block css %}
+<style>
+    .divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: rgb(0, 0, 0);
+}
+</style>
+
+
+{% endblock %}
+
+
+{% block content %}
+<div class="alert alert-warning alert-dismissible fade show" id ='al' role="alert">
+  <strong ></strong>
+</div>
+<div class="container my-2" >
+<h1 class="h3 mb-3 font-weight-normal" style="text-align: center;"><b>Add Your Client here</b></h1>
+<p  style="text-align: center;">Fill the details and click on Submit <br> 2.If not have any Demat account write NAN</p>
+
+
+<div class="container my-2" style="border: black solid 2px; border-radius: 3px;">
+    <div class="container my-2">
+      <form method="POST" >
+          {% csrf_token %}
+          {{form}}
+          
+            <div id="id_other">
+            <label id = "extra" ></label>
+            <input type="text" id ='ip'name="State1" class="form-control my-2" maxlength="40">
+          </div>
+            
+          <div style="text-align: center;">
+          <button type="submit" id="but" class="btn btn-primary" >Submit</button></div>
+      </form>
+    </div>
+    </div>
+
+</div>
+             
+
+
+<script src="{% static 'js/Lead_ref_extra.js' %}">
+
+
+</script>
+{% endblock %} 
+

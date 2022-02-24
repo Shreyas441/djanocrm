@@ -1,0 +1,71 @@
+{% extends 'Agent/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<style>
+    .divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: rgb(0, 0, 0);
+}
+</style>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<h5 style="text-align: center; font-weight: 700;">Service Requested</h5>
+
+<div class="container my-2" style="border: black solid 2px; border-radius: 3px;">
+  <div class="table-responsive ">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Unique Id</th>
+          <th scope="col">Client Name</th>
+          <th scope="col">Agent Name</th>
+          <th scope="col">Service requested</th>
+          <th scope="col">Service status</th>
+
+          
+  
+        </tr>
+      </thead>
+      <tbody>
+          {% for k in Services_taken_request_a %}
+        <tr>
+          <th scope="row">{{k.id}}</th>
+          <td>{{k.Name.Name}}</td>
+          <th>{{k.Name.Agent_Name.Agent_user}}</th>
+          <td>{{k.Service}}</td>
+          <td>{{k.status}}</td>
+          
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+</div>
+<div  style="text-align: center;">
+    {% if Services_taken_request_a.has_previous %}
+    <a class="btn btn-outline-info" href="{% url 'Agent_trail_request' %}?Services_taken_request_a={{Services_taken_request_a.previous_page_number}}">Previous</a>
+    {% endif %}
+    {% if Services_taken_request_a.has_next %}
+    <a  class="btn btn-outline-info" href="{% url 'Agent_trail_request' %}?Services_taken_request_a={{Services_taken_request_a.next_page_number}}">Next</a>
+    {% endif %}
+    </div>
+{% endblock %}

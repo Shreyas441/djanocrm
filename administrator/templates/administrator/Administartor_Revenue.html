@@ -1,0 +1,178 @@
+{% extends 'administrator/Administrator_base.html' %}
+{% block css %}
+<style>
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+</style>
+
+
+{% endblock %}
+{% block content %}
+
+<div class="container my-2">
+  <h5 style="text-align: center;">Revenue Analysis</h5>
+  <div class="row">
+    
+    <div class="col-xl-6 col-md-6">
+        <div class="card  border-dark mb-3">
+          <div class="card-body"> Total Revenue of week</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <p class="small stretched-link"> Rs.{{week_revenue}}</p>
+            
+          </div>
+        </div>
+      
+    </div>
+ 
+    <div class="col-xl-6 col-md-6">
+      <div class="card border-primary mb-3">
+      <div class="card-body"> Total Revenue of mounth</div>
+      <div class="card-footer d-flex align-items-center justify-content-between">
+          <p class="small  stretched-link">Rs.{{mounth_revenue}}</p>
+          
+        </div>
+      </div>
+  </div>
+  
+    <div class="col-xl-6 col-md-6 ">
+      <div class="card border-primary mb-3">
+        <div class="card-body">Total Revenue of Year</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <p class="small  stretched-link">Rs.{{Year_revenue}}</p>
+            
+          </div>
+        </div>
+      
+  </div>
+  <div class="col-xl-6 col-md-6">
+    <div class="card border-dark  mb-3">
+      <div class="card-body"> Total Revenue </div>
+    <div class="card-footer d-flex align-items-center justify-content-between">
+        <p class="small  stretched-link">Rs.{{total_revenue}}</p>
+        
+      </div>
+    </div>
+  
+</div>
+</div>
+</div>
+<div class="container my-2">
+  <h5 style="text-align: center;">Marketing Analysis</h5>
+  <div class="row">
+    
+    <div class="col-xl-6 col-md-6">
+        <div class="card  border-dark mb-3">
+          <div class="card-body"> Total Client from website</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <p class="small stretched-link"> {{Customer_a}}</p>
+            
+          </div>
+        </div>
+      
+    </div>
+ 
+    <div class="col-xl-6 col-md-6">
+      <div class="card border-primary mb-3">
+      <div class="card-body"> Total Client from Social media</div>
+      <div class="card-footer d-flex align-items-center justify-content-between">
+          <p class="small  stretched-link">{{Customer_b}}</p>
+          
+        </div>
+      </div>
+  </div>
+  
+    <div class="col-xl-6 col-md-6 ">
+      <div class="card border-primary mb-3">
+        <div class="card-body">Total Client from Marketing</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <p class="small  stretched-link">{{Customer_c}}</p>
+            
+          </div>
+        </div>
+      
+  </div>
+  <div class="col-xl-6 col-md-6">
+    <div class="card border-dark  mb-3">
+      <div class="card-body"> Total Client From  other </div>
+    <div class="card-footer d-flex align-items-center justify-content-between">
+        <p class="small  stretched-link">{{Customer_d}}</p>
+        
+      </div>
+    </div>
+  
+</div>
+</div>
+</div>
+<div class="container my-2">
+  <h5 style="text-align: center;">Payment Analysis</h5>
+  <div class="row">
+    
+    <div class="col-xl-6 col-md-6">
+        <div class="card  border-dark mb-3">
+          <div class="card-body"> Total Payment by Gpay</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <p class="small stretched-link"> {{Gpay_count}}</p>
+            
+          </div>
+        </div>
+      
+    </div>
+ 
+    <div class="col-xl-6 col-md-6">
+      <div class="card border-primary mb-3">
+      <div class="card-body"> Total Payment by Paytm</div>
+      <div class="card-footer d-flex align-items-center justify-content-between">
+          <p class="small  stretched-link">{{paytm_count}}</p>
+          
+        </div>
+      </div>
+  </div>
+  
+    <div class="col-xl-6 col-md-6 ">
+      <div class="card border-primary mb-3">
+        <div class="card-body">Total Payment by Bank transfer</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <p class="small  stretched-link">{{bank_count}}</p>
+            
+          </div>
+        </div>
+      
+  </div>
+  <div class="col-xl-6 col-md-6">
+    <div class="card border-dark  mb-3">
+      <div class="card-body"> Total Payment by Online transfer</div>
+    <div class="card-footer d-flex align-items-center justify-content-between">
+        <p class="small  stretched-link">{{online_count}}</p>
+        
+      </div>
+    </div>
+  
+</div>
+<div class="col-xl-6 col-md-6">
+  <div class="card border-dark  mb-3">
+    <div class="card-body"> Total Payment by Other source</div>
+  <div class="card-footer d-flex align-items-center justify-content-between">
+      <p class="small  stretched-link">{{Other_count}}</p>
+      
+    </div>
+  </div>
+
+</div>
+</div>
+</div>
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+{% endblock content %}

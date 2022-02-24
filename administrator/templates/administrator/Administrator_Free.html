@@ -1,0 +1,64 @@
+{% extends 'administrator/Administrator_base.html' %}
+{% block css %}
+<style>
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+</style>
+{% endblock %}
+{% block content %}
+<h5 style="text-align: center;">Your Leads With Trial </h5>
+<div class="container my-2" style="border: black solid 2px; border-radius: 3px;">
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Unique No</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Agent in Contact</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">email</th>
+            <th scope="col">GSt no</th>
+            <th scope="col">City</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          
+  
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in total_Free %}
+        <tr>
+          <th scope="row">{{i.id}}</th>
+          <td>{{i.Name}}</td>
+          <td>{{i.Agent_Name}}</td>
+          <td>{{i.mobile}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.GST_NUM}}</td>
+          <td>{{i.City}}</td>
+          <td> <a  class="btn btn-sm btn-warning" href="{% url 'administrator_client_Update' i.id %}"> Update </a> </td>
+          <td> <a  class="btn btn-sm btn-danger" href="{% url 'administrator_client_delete' i.id %}"> Delete </a> </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+</div>
+<div  style="text-align: center;">
+    
+  {% if total_Free.has_previous %}
+    <a class="btn btn-outline-info" href="{% url 'Lead_details' %}?total_Free={{total_Free.previous_page_number}}">Previous</a>
+  {% endif %}
+  {% if total_Free.has_next %}
+    <a  class="btn btn-outline-info" href="{% url 'Lead_details' %}?total_Free={{total_Free.next_page_number}}">Next</a>
+  {% endif %}
+
+
+</div>
+{% endblock content %}

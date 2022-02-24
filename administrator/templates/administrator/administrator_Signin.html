@@ -1,0 +1,80 @@
+{% extends 'administrator/Base_BL.html' %}
+
+{% load static %}
+{% block css %} 
+<style>
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.text-small {
+  font-size: 0.9rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+}
+
+footer {
+  background: #212529;
+}
+
+  body, html {
+    height: 100%;
+  }
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+</style>
+
+
+</style>
+
+{% endblock %}
+{% block title %} <title>Administrator_SignIn</title>  {% endblock %}
+{% block content %}
+
+
+<div class="container my-4">
+
+      <form class="form-signin" method="POST">
+        <h1 class="h3 mb-3 font-weight-normal" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Administrator Signin</h1>
+        {% csrf_token %}
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+            <label for="">Username</label>
+            <input type="text" class="form-control" placeholder="Username" id="userDOC" name="usernames" required>
+            <span id="userValid"></span>
+        </div>
+        <div class="form-outline mb-4">
+          <label for="">Password</label>
+          <input type="Password" class="form-control" name="password" placeholder="Password" required>
+      </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <div class="d-flex justify-content-around align-items-center mb-4">
+          <h2 class="mx-auto" style="color: red;">{{i}}</h2>
+          </div>
+      </form>
+      <script src="{% static 'js/search_valid.js' %}"></script>
+
+</div>
+
+
+
+   
+{% endblock content %}
+
+   

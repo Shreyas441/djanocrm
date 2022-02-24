@@ -1,0 +1,69 @@
+
+{% extends 'administrator/Administrator_base.html' %}
+{% block css %}
+<style>
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+</style>
+
+
+{% endblock %}
+{% block content %}
+<div class="container my-4">
+<h1 class="h3 mb-3 font-weight-normal" style="text-align: center;"><b>Service  request Reject Form</b></h1>
+<p  style="text-align: center;">Are you sure? you want to Reject request ?</p>
+<div class="container my-2" style="border: black solid 2px; border-radius: 3px;">
+  <div class="table-responsive ">
+    <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col">Unique Id</th>
+            <th scope="col">Client Name</th>
+            <th scope="col">Client Mobile</th>
+            <th scope="col">Agent Name</th>
+            <th scope="col">Agent Mobile</th>
+            <th scope="col">Service requested</th>
+
+            
+    
+          </tr>
+        </thead>
+        <tbody>
+           
+          <tr>
+            <th scope="row">{{Services_taken_request_a.id}}</th>
+            <td>{{Services_taken_request_a.Name.Name}}</td>
+            <td>{{Services_taken_request_a.Name.mobile}}</td>
+            
+            <th>{{Services_taken_request_a.Name.Agent_Name.Agent_user}}</th>
+            <th>{{Services_taken_request_a.Name.Agent_Name.mobile}}</th>
+            <td>{{Services_taken_request_a.Service}}</td>
+
+          </tr>
+         
+        </tbody>
+      </table>
+</div>
+            
+          </div>
+        </div>
+        <form action="{% url 'Reject_trial' Services_taken_request_a.id %}" method="POST">
+            {% csrf_token %}
+            <div  style="text-align: center;">
+            <a class="btn btn-warning" href="{% url 'administrator_home' %}">Cancel</a>
+            <input class="btn btn-danger" type="submit" name="Confirm">
+          </div>
+        </form>
+
+<br>
+<br>
+<br>
+<br>
+{% endblock content %}

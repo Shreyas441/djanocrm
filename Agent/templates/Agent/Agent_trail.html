@@ -1,0 +1,75 @@
+{% extends 'Agent/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<style>
+    .divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: rgb(0, 0, 0);
+}
+</style>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<h5 style="text-align: center; font-weight: 700;">Your Service Trials</h5>
+<div class="container my-2" style="border: black solid 2px; border-radius: 3px;">
+<div class="table-responsive">
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Unique No</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Service Name</th>
+        <th scope="col">Start date</th>
+        <th scope="col">End date</th>
+        <th scope="col">Days left</th>
+        <th scope="col">Paid Amount</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in Services_takenc %}
+      <tr>
+        <th scope="row">{{i.id}}</th>
+          <td>{{i.Name.Name}}</td>
+          <td>{{i.Service.Service_Name}}</td>
+          <td>{{i.Start_date}}</td>
+          <td>{{i.End_date}}</td>
+          <td>{{i.days_left}}</td>
+          <td>{{i.Tot_payement}}</td>
+          <td> <a  class="btn btn-sm btn-warning" href="{% url 'Service_taken_Update' i.id %}"> Update </a> </td>
+          <td> <a  class="btn btn-sm btn-danger" href="{% url 'Service_taken_delete' i.id %}"> Delete </a> </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
+<div  style="text-align: center;">
+    {% if Services_takenc.has_previous %}
+    <a class="btn btn-outline-info" href="{% url 'Agent_trail' %}?Services_takenc={{Services_takenc.previous_page_number}}">Previous</a>
+    {% endif %}
+    {% if Services_takenc.has_next %}
+    <a  class="btn btn-outline-info" href="{% url 'Agent_trail' %}?Services_takenc={{Services_takenc.next_page_number}}">Next</a>
+    {% endif %}
+    </div>
+{% endblock %}

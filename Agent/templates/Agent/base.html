@@ -1,0 +1,165 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block title %}  {% endblock %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    {% block js%} {% endblock %}
+    
+  </head>
+ 
+  {% block css %}
+  <style>
+    .divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+    .text-small {
+        font-size: 0.9rem;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    a:hover,
+    a:focus {
+        text-decoration: none;
+    }
+
+    footer {
+        background: #212529;
+    }
+
+    body,
+    html {
+        height: 100%;
+        background-color: white;
+    }
+    main {
+    display: block;
+}
+h1{
+    margin-top: 0;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: white;
+}
+
+</style>
+  {% endblock %}
+  <body>
+   
+    
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"> <img src="{% static 'images/Logo.jpg' %}" alt="My image" style="height: 80px; width: 100px; "> </a>
+      <h6 style="color: white;"> Welcome {{request.user}}</h6>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link  active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Service
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: black;">
+                <li class="dropdown-item">
+                    <a class="nav-link active"   href="{% url 'client_add' %}" onMouseOver="this.style.color='black'"
+                    onMouseOut="this.style.color='white'">Add Your Clients</a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a class="nav-link active"  href="{% url 'Service_taken_add' %}" onMouseOver="this.style.color='black'"
+                    onMouseOut="this.style.color='white'" >Add your service Saled</a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a class="nav-link active"  href="{% url 'Service_taken_request' %}" onMouseOver="this.style.color='black'"
+                    onMouseOut="this.style.color='white'" >Make trial request</a>
+                  </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'Agent_home' %}">Home</a>  
+          </li>
+   
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+    <div class="content">
+        {% block content %}
+    
+        {% endblock content %}
+      </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    <div class="footer my-3">
+      <footer class="w-100 py-4 flex-shrink-0 ">
+        <div class="container py-4">
+            <div class="row gy-4 gx-5">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="h1 text-white">Contact us @</h5>
+                    <ul class="list-unstyled text-muted">
+                      <li>Phone: +91 98799 88988</li>
+                      <li>Website: www.WealthWind.in</li>
+                      <li>Email: info@WealthWind.in</a></li>
+                  </ul>
+                    <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved. <a class="text-primary" href="#">www.WealthWind.in</a></p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-3">Administrator</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="{% url 'administrator_login'%}">Administrator SignIn</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">Agent</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="{% url 'Agent_login'%}">Agent SignIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+   
+  </body>
+</html>

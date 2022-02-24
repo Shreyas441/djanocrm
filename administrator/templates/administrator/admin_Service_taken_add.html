@@ -1,0 +1,55 @@
+
+{% extends 'administrator/Administrator_base.html' %}
+{% load static %}
+
+{% block title %} <title>Add Service taken </title> {% endblock %}
+{% block css %}
+<style>
+    .divider:after,
+.divider:before {
+  content: ""; 
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+
+
+
+
+</style>
+
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container my-2" >
+  <h1 class="h3 mb-3 font-weight-normal" style="text-align: center;"><b>Add Your Saled Service here</b></h1>
+  <p  style="text-align: center;">1.Fill the details and click on Submit<br> 2.Client Name is as Client_name[unique Id] <br> 3.Service Name is as Service_name[Price]</p>
+  
+  
+  <div class="container my-2" style="border: black solid 2px; border-radius: 3px;">
+      <div class="container my-2">
+        <form method="POST">
+            {% csrf_token %}
+            {{form}}
+            <div style="text-align: center;">
+            <button type="submit" id="but" class="btn btn-primary" >Submit</button></div>
+        </form>
+      </div>
+      </div>
+  
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'administrator/Administrator_base.html' %}
+
+
+{% block title %} <title> Home Page</title>{% endblock %}
+
+{% block css %}
+<style>
+    .divider:after,
+.divider:before {
+  content: ""; 
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: rgb(0, 0, 0);
+}
+
+</style>
+
+
+{% endblock %}
+{% block content %}
+
+ 
+<div class="container my-2">
+  <h1 class="h3 mb-3 font-weight-normal" style="text-align: center;"><b>Add Your Service</b></h1>
+<p  style="text-align: center;">1.Define Service Name   <br> 2.Define Service Charges <br> 3.Add Duration in the format days hours:min (if only 30 days keep hours:min as 30 00:00)</p>
+<div class="container my-2" style="border: black solid 2px; border-radius: 3px;">
+  <div class="container my-2">
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <div style="text-align: center;">
+        <button type="submit" id="but" class="btn btn-primary" >Submit</button></div>
+    </form>
+  </div>
+  </div>
+</div>
+    
+{% endblock content %}
+    

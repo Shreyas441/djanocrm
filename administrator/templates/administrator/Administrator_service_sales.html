@@ -1,0 +1,67 @@
+{% extends 'administrator/Administrator_base.html' %}
+
+
+{% block title %} <title> Service Page</title>{% endblock %}
+{% block css %}
+<style>
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<h5 style="text-align: center; font-weight: 700;">Service Details</h5>
+    <div class="container my-2" style="border: black solid 2px; border-radius: 3px;">
+      <div class="table-responsive">
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Unique Id</th>
+              <th scope="col">Service Name</th>
+              <th scope="col">Service Duration</th>
+              <th scope="col">Sales count</th>
+              <th scope="col">Charges</th>
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
+      
+              
+      
+            </tr>
+          </thead>
+          <tbody>
+              {% for i in Services_s %}
+            <tr>
+              <th scope="row">{{i.id}}</th>
+              <td>{{i.Service_Name}}</td>
+              <td>{{i.Duration_Service}}</td>
+              <td>{{i.Sales_count}}</td>
+              <td>{{i.Charges}}</td>
+              <td> <a  class="btn btn-sm btn-warning" href="{% url 'service_update' i.id %}"> Update </a></td>
+              <td> <a  class="btn btn-sm btn-danger" href="{% url 'service_delete' i.id %}"> Delete </a></td>
+              
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+    </div>
+    <div  style="text-align: center;">
+    
+    {% if Services_s.has_previous %}
+      <a class="btn btn-outline-info" href="{% url 'service_sales' %}?Services_s={{Services_s.previous_page_number}}">Previous</a>
+    {% endif %}
+    {% if Services_s.has_next %}
+      <a  class="btn btn-outline-info" href="{% url 'service_sales' %}?Services_s={{Services_s.next_page_number}}">Next</a>
+    {% endif %}
+
+  
+</div>
+    {% endblock content %}

@@ -1,0 +1,87 @@
+{% extends 'administrator/Administrator_base.html' %}
+
+
+{% block title %} <title> Home Page</title>{% endblock %}
+
+
+{% block content %}
+
+<div class="container my-2">
+  
+  <div class="row">
+    
+    <div class="col-xl-4 col-md-6">
+        <div class="card bg-success text-white mb-3">
+          <a href="{% url 'Lead_details'%}"><div class="card-body"> Total Lead </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <p class="small text-white stretched-link">{{total_Lead}}</p>
+            
+          </div>
+        </div>
+      </a>
+    </div>
+ 
+    <div class="col-xl-4 col-md-6">
+      <div class="card bg-primary text-white mb-3">
+        <a href="{% url 'service_sales'%}"><div class="card-body"> Total service added </div>
+      <div class="card-footer d-flex align-items-center justify-content-between">
+          <p class="small text-white stretched-link">{{Services_s}}</p>
+          
+        </div>
+      </div>
+    </a>
+  </div>
+  
+    <div class="col-xl-4 col-md-6 ">
+      <div class="card bg-warning text-white mb-3">
+        <a href="{% url 'Client_details'%}"><div class="card-body">Total client</div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <p class="small text-white stretched-link">{{total_client}}</p>
+            
+          </div>
+        </div>
+      </a>
+  </div>
+</div>
+</div>
+<div class="container my-2">
+  
+  <div class="row">
+    
+    <div class="col-xl-4 col-md-6">
+        <div class="card bg-success text-white mb-3">
+          <a href="{% url 'service_sales_report'%}"><div class="card-body">Service sales Report</div>
+        
+        </div>
+      </a>
+    </div>
+ 
+    <div class="col-xl-4 col-md-6">
+      <div class="card bg-primary text-white mb-3">
+        <a href="{% url 'Agent_report'%}"><div class="card-body"> Agent Performence Report</div>
+      
+      </div>
+    </a>
+  </div>
+  
+    <div class="col-xl-4 col-md-6 ">
+      <div class="card bg-warning text-white mb-3">
+        <a href="{% url 'Services_taken_request_details'%}"><div class="card-body">Service Requests</div>
+       
+        </div>
+      </a>
+  </div>
+</div>
+</div>
+
+
+
+    
+    
+
+
+
+  {% endblock content %}
+
+
+

@@ -1,0 +1,82 @@
+
+{% extends 'Agent/base.html' %}
+{% load static %}
+
+{% block title %} <title>Update Service taken </title> {% endblock %}
+{% block css %}
+<style>
+    .divider:after,
+.divider:before {
+  content: ""; 
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+</style>
+
+
+{% endblock %}
+
+
+{% block content %}
+<h1 class="h3 mb-3 font-weight-normal" style="text-align: center;"><b>Delete Your saled Service</b></h1>
+<p  style="text-align: center;">Are you sure? you want to delete ?</p>
+
+<div class="container my-2" style="border: black solid 2px; border-radius: 3px;">
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Services id</th>
+          <th scope="col">Customer Name</th>
+          <th scope="col">Service Name</th>
+          <th scope="col">Start_date </th>
+          <th scope="col">End_date</th>
+          <th scope="col">payement</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>{{Services_taken_d.id}}</td>
+        <td>{{Services_taken_d.Name}}</td>
+        <td>{{Services_taken_d.Service.Service_Name}}</td>
+        <td>{{Services_taken_d.Start_date}}</td>
+        <td>{{Services_taken_d.End_date}}</td>
+        <td>{{Services_taken_d.Tot_payement}}</td>
+        
+      
+      </tr>
+    </tbody>
+    </table>
+    </div>
+</div>
+
+  <div class="d-flex justify-content-around align-items-center mb-4">
+    <form action="{% url 'Service_taken_delete' Services_taken_d.id %}" method="POST">
+                
+      {% csrf_token %}
+       <div  style="text-align: center;">
+            <a class="btn btn-warning" href="{% url 'Agent_home' %}">Cancel</a>
+            <input class="btn btn-danger" type="submit" name="Confirm">
+          </div>
+  
+
+ 
+</form> 
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'administrator/Administrator_base.html' %}
+
+
+{% block title %} <title> Home Page</title>{% endblock %}
+
+{% block css %}
+<style>
+    .divider:after,
+.divider:before {
+  content: ""; 
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+
+.footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: rgb(0, 0, 0);
+}
+
+</style>
+
+
+{% endblock %}
+
+
+{% block content %}
+<h1 class="h3 mb-3 font-weight-normal" style="text-align: center;"><b>Service request Confirm Form</b></h1>
+<p  style="text-align: center;">Update the details and click on Update</p>
+<div class="container my-2" style="border: black solid 2px; border-radius: 3px;">
+<div class="container my-2">
+    <form method="POST">
+      <h6> Client Name = {{Services_taken_request_a.Name}}</h6>
+      <h6> Service Name = {{Services_taken_request_a.Service}}</h6>
+      <h6>Client Mobile ={{Services_taken_request_a.Name.mobile}}</h6>
+      <h6> Agent Name = {{Services_taken_request_a.Name.Agent_Name.Agent_user}}</h6>
+      <h6>Agent Mobile = {{Services_taken_request_a.Name.Agent_Name.mobile}}</h6>
+        {% csrf_token %}
+        {{form}}
+        <div class="container" style="text-align: center;"><button type="submit" class="btn btn-primary">Update</button></div>
+    </form>
+</div>
+</div>
+{% endblock content %}
+    
